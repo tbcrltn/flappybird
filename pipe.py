@@ -6,7 +6,7 @@ class Pipe:
         self.screen = screen
         self.pipe_image = pygame.image.load("C:/Users/tbcrl/Documents/flappybird/sprites/pipe.png") 
         self.pipe_image = pygame.transform.scale(self.pipe_image, (50, 300))
-        self.clip_rect = pygame.Rect(0, 0, 480, 527)
+        self.clip_rect = pygame.Rect(0, -600, 480, 1127)
         self.top_pipes = []
         self.bottom_pipes = []
         self.timer = 100
