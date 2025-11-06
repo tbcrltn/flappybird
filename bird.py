@@ -4,7 +4,7 @@ class Bird:
         self.flap_height = flap_height
         self.flap_speed = 100 - flap_speed
         self.flap_state = True
-        self.flap_triggered = False
+        self.flap_triggered = True
         self.timer = 0
         self.screen = screen
         self.gravity = 0.4 # gravity controls the rate at which the bird transitions into a freefall and max gravity controls the max speed that the bird can fall at
@@ -13,12 +13,12 @@ class Bird:
         self.angle_vel = 0
         self.angle_gravity = 0.17# angle gravity controls are the same as the regular gravity controls.
         self.max_angle_gravity = 7
-        self.y_vel = 0
+        self.y_vel = self.flap_height
         self.bird_wingsup = pygame.image.load("C:/Users/tbcrl/Documents/flappybird/sprites/bird_wingsup.png")
         self.bird_wingsup = pygame.transform.scale(self.bird_wingsup, (45, 32))
         self.bird_wingsdown = pygame.image.load("C:/Users/tbcrl/Documents/flappybird/sprites/bird_wingsdown.png")
         self.bird_wingsdown = pygame.transform.scale(self.bird_wingsdown, (45, 32))
-        self.bird = pygame.Rect(80, 300, 45, 32)
+        self.bird = pygame.Rect(80, 400, 45, 27)
 
 
     def main(self):

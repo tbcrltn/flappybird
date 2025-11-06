@@ -2,7 +2,7 @@ import pygame
 import random
 class Pipe:
     def __init__(self, screen, frequency, speed):
-        self.frequency = (10 - frequency)*60
+        self.frequency = frequency *60
         self.screen = screen
         self.pipe_image = pygame.image.load("C:/Users/tbcrl/Documents/flappybird/sprites/pipe.png") 
         self.pipe_image = pygame.transform.scale(self.pipe_image, (50, 300))
@@ -11,6 +11,7 @@ class Pipe:
         self.bottom_pipes = []
         self.timer = 100
         self.speed = speed
+        self.score = 0
 
     def main(self):
         if self.timer >= self.frequency:
@@ -37,7 +38,7 @@ class Pipe:
     def add_pipe(self):
         y = random.randint(225, 400)
         self.bottom_pipes.append(pygame.Rect(520, y, 50, 300))
-        self.top_pipes.append(pygame.Rect(520, y-425, 50, 300))
+        self.top_pipes.append(pygame.Rect(520, y-425, 50, 285))
     
     def handle_movement(self):
         for pipe in self.bottom_pipes:
@@ -46,6 +47,10 @@ class Pipe:
             else:
                 pipe.x -= self.speed
                 self.blit_pipe(pipe.x, pipe.y)
+            if pipe.x < 80 and pipe.x > 76:
+                self.score += 1
+                if not self.frequency < 20:
+                    self.frequency -= 4
         
         for pipe in self.top_pipes:
             if pipe.x < -80:
@@ -53,5 +58,9 @@ class Pipe:
             else:
                 pipe.x -= self.speed
                 self.blit_pipe(pipe.x, pipe.y, True)
+
+
+    def get_score(self):
+        return self.score
 
         
