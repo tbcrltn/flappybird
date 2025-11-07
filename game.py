@@ -25,7 +25,7 @@ class Game:
 
             self.move_background()
             self.pipe.main()
-            self.handle_score()
+            self.display_score()
             self.bird.main()
             self.collision_handling()
             pygame.display.update()
@@ -92,7 +92,7 @@ class Game:
         self.pipe.bottom_pipes.clear()
         self.start_screen()
 
-    def handle_score(self):
+    def display_score(self):
         score = self.pipe.get_score()
         print(score)
         
