@@ -88,11 +88,33 @@ class Game:
     def reset(self):
         self.bird.bird.y = 400
         self.bird.angle = 0
+        self.pipe.score = 0
         self.pipe.top_pipes.clear()
         self.pipe.bottom_pipes.clear()
         self.start_screen()
 
     def display_score(self):
         score = self.pipe.get_score()
-        print(score)
+        split_score = list(str(score))
+        if len(split_score) == 1:
+            split_score.insert(0, None)
+            split_score.insert(0, None)
+        elif len(split_score) == 2:
+            split_score.insert(0, None)
+
+        if split_score[0] != None:
+            score_000_image = pygame.image.load(f"C:/Users/tbcrl/Documents/flappybird/sprites/{split_score[0]}.png")
+            score_00_image = pygame.image.load(f"C:/Users/tbcrl/Documents/flappybird/sprites/{split_score[1]}.png")
+            score_0_image = pygame.image.load(f"C:/Users/tbcrl/Documents/flappybird/sprites/{split_score[2]}.png")
+            self.screen.blit(score_000_image, (self.screen.width/2 - score_000_image.width/2 - 24, 100))
+            self.screen.blit(score_00_image, (self.screen.width/2 - score_00_image.width/2, 100))
+            self.screen.blit(score_0_image, (self.screen.width/2 - score_0_image.width/2 + 24, 100))
+        elif split_score[1] != None:
+            score_00_image = pygame.image.load(f"C:/Users/tbcrl/Documents/flappybird/sprites/{split_score[1]}.png")
+            score_0_image = pygame.image.load(f"C:/Users/tbcrl/Documents/flappybird/sprites/{split_score[2]}.png")
+            self.screen.blit(score_00_image, (self.screen.width/2 - score_00_image.width/2 - 12, 100))
+            self.screen.blit(score_0_image, (self.screen.width/2 - score_0_image.width/2 + 12, 100))
+        else:
+            score_0_image = pygame.image.load(f"C:/Users/tbcrl/Documents/flappybird/sprites/{split_score[2]}.png")
+            self.screen.blit(score_0_image, (self.screen.width/2 - score_0_image.width/2, 100))
         
