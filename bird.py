@@ -19,6 +19,8 @@ class Bird:
         self.bird_wingsdown = pygame.image.load("C:/Users/tbcrl/Documents/flappybird/sprites/bird_wingsdown.png")
         self.bird_wingsdown = pygame.transform.scale(self.bird_wingsdown, (45, 32))
         self.bird = pygame.Rect(80, 400, 45, 27)
+        self.flap_sound = pygame.mixer.Sound("C:/Users/tbcrl/Documents/flappybird/sounds/flap.mp3")
+        
 
 
     def main(self):
@@ -57,6 +59,7 @@ class Bird:
 
         if keys[pygame.K_UP] or keys[pygame.K_SPACE]:
             if not self.flap_triggered:
+                self.flap_sound.play()
                 self.y_vel = self.flap_height
                 self.angle = 34
                 self.angle_vel = 0

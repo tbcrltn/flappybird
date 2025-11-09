@@ -4,6 +4,7 @@ from pipe import Pipe
 import time
 class Game:
     def __init__(self):
+        pygame.init()
         self.screen = pygame.display.set_mode((480, 640))
         self.off_ground_rect = pygame.Rect(0, -600, 480, 1100)
         self.background_image = pygame.image.load("C:/Users/tbcrl/Documents/flappybird/sprites/background.jpg")

@@ -12,6 +12,7 @@ class Pipe:
         self.timer = 100
         self.speed = speed
         self.score = 0
+        self.point_sound = pygame.mixer.Sound("C:/Users/tbcrl/Documents/flappybird/sounds/point.mp3")
 
     def main(self):
         if self.timer >= self.frequency:
@@ -49,6 +50,7 @@ class Pipe:
                 self.blit_pipe(pipe.x, pipe.y)
             if pipe.x < 80 and pipe.x > 76:
                 self.score += 1
+                self.point_sound.play()
                 if not self.frequency < 20:
                     self.frequency -= 4
         
