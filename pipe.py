@@ -3,8 +3,9 @@ import random
 class Pipe:
     def __init__(self, screen, frequency, speed):
         self.frequency = frequency *60
+        self.start_frequency = self.frequency
         self.screen = screen
-        self.pipe_image = pygame.image.load("C:/Users/tbcrl/Documents/flappybird/sprites/pipe.png") 
+        self.pipe_image = pygame.image.load("sprites/pipe.png") 
         self.pipe_image = pygame.transform.scale(self.pipe_image, (50, 300))
         self.clip_rect = pygame.Rect(0, -600, 480, 1127)
         self.top_pipes = []
@@ -12,7 +13,7 @@ class Pipe:
         self.timer = 100
         self.speed = speed
         self.score = 0
-        self.point_sound = pygame.mixer.Sound("C:/Users/tbcrl/Documents/flappybird/sounds/point.mp3")
+        self.point_sound = pygame.mixer.Sound("sounds/point.mp3")
 
     def main(self):
         if self.timer >= self.frequency:
@@ -51,8 +52,9 @@ class Pipe:
             if pipe.x < 80 and pipe.x > 76:
                 self.score += 1
                 self.point_sound.play()
-                if not self.frequency < 20:
+                if not self.frequency < 70:
                     self.frequency -= 4
+                    print(self.frequency)
         
         for pipe in self.top_pipes:
             if pipe.x < -80:

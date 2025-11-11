@@ -14,12 +14,12 @@ class Bird:
         self.angle_gravity = 0.17# angle gravity controls are the same as the regular gravity controls.
         self.max_angle_gravity = 7
         self.y_vel = self.flap_height
-        self.bird_wingsup = pygame.image.load("C:/Users/tbcrl/Documents/flappybird/sprites/bird_wingsup.png")
+        self.bird_wingsup = pygame.image.load("sprites/bird_wingsup.png")
         self.bird_wingsup = pygame.transform.scale(self.bird_wingsup, (45, 32))
-        self.bird_wingsdown = pygame.image.load("C:/Users/tbcrl/Documents/flappybird/sprites/bird_wingsdown.png")
+        self.bird_wingsdown = pygame.image.load("sprites/bird_wingsdown.png")
         self.bird_wingsdown = pygame.transform.scale(self.bird_wingsdown, (45, 32))
-        self.bird = pygame.Rect(80, 400, 45, 27)
-        self.flap_sound = pygame.mixer.Sound("C:/Users/tbcrl/Documents/flappybird/sounds/flap.mp3")
+        self.bird = pygame.Rect(80, 400, 45, 32)
+        self.flap_sound = pygame.mixer.Sound("sounds/flap.mp3")
         
 
 
