@@ -54,7 +54,6 @@ class Pipe:
                 self.point_sound.play()
                 if not self.frequency < 70:
                     self.frequency -= 4
-                    print(self.frequency)
         
         for pipe in self.top_pipes:
             if pipe.x < -80:
